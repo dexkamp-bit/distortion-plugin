@@ -111,45 +111,46 @@
                         <div class="knob-pointer large-pointer"></div>
                     </div>
                     <input type="range" id="kickDecay" min="10" max="2000" value="500" class="knob-input">
-                    <label class="knob-label">DECAY</label>
-                    <span class="knob-value kick-value" id="decayValue">500</span>
+                    <label class="knob-label\">DECAY</label>
+                    <span class=\"knob-value kick-value\" id=\"decayValue\">500</span>
                 </div>
 
-                <div class="large-knob-group">
-                    <div class="large-knob" id="volumeKnob">
-                        <div class="knob-pointer large-pointer"></div>
+                <div class=\"large-knob-group\">
+                    <div class=\"large-knob\" id=\"volumeKnob\">
+                        <div class=\"knob-pointer large-pointer\"></div>
                     </div>
-                    <input type="range" id="kickVolume" min="0" max="100" value="80" class="knob-input">
-                    <label class="knob-label">VOLUME</label>
-                    <span class="knob-value kick-value" id="volumeValue">80</span>
+                    <input type=\"range\" id=\"kickVolume\" min=\"0\" max=\"100\" value=\"80\" class=\"knob-input\">
+                    <label class=\"knob-label\">VOLUME</label>
+                    <span class=\"knob-value kick-value\" id=\"volumeValue\">80</span>
                 </div>
             </div>
 
             <!-- Kick Trigger Buttons -->
-            <div class="kick-controls">
-                <button id="kickTrigger" class="kick-trigger-btn">TRIGGER</button>
-                <button id="kickReset" class="kick-reset-btn">RESET</button>
+            <div class=\"kick-controls\">
+                <button id=\"kickTrigger\" class=\"kick-trigger-btn\">TRIGGER</button>
+                <button id=\"kickReset\" class=\"kick-reset-btn\">RESET</button>
             </div>
         </div>
     </div>
 
     <!-- Main Controls -->
-    <div class="main-controls">
-        <input type="file" id="audioInput" accept="audio/*" style="display: none;">
-        <button id="loadAudioBtn" class="main-btn">📁 LOAD</button>
-        <button id="playBtn" class="main-btn">▶ PLAY</button>
-        <button id="stopBtn" class="main-btn">⏹ STOP</button>
-        <button id="masterPowerBtn" class="main-btn power">🔌 POWER</button>
+    <div class=\"main-controls\">
+        <input type=\"file\" id=\"audioInput\" accept=\"audio/*\" style=\"display: none;\">
+        <button id=\"loadAudioBtn\" class=\"main-btn\">📁 LOAD</button>
+        <button id=\"playBtn\" class=\"main-btn\">▶ PLAY</button>
+        <button id=\"stopBtn\" class=\"main-btn\">⏹ STOP</button>
+        <button id=\"masterPowerBtn\" class=\"main-btn power\">🔌 POWER</button>
     </div>
 
-    <div class="indicators-main">
-        <div class="led" id="clippingLed"></div>
-        <span class="led-text">CLIP</span>
+    <div class=\"indicators-main\">
+        <div class=\"led\" id=\"clippingLed\"></div>
+        <span class=\"led-text\">CLIP</span>
     </div>
 
-    <script src="distortion.js"></script>
-    <script src="filter.js"></script>
-    <script src="kick.js"></script>
-    <script src="knobs.js"></script>
+    <script src=\"distortion.js\"></script>
+    <script src=\"filter.js\"></script>
+    <script src=\"kick.js\"></script>
+    <script src=\"knobs.js\"></script>
+    <script src=\"audio-controls.js\"></script>
 </body>
 </html>
