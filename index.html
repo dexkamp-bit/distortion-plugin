@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardstyle Distortion Plugin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="plugin-container">
+        <div class="header">
+            <h1>⚡ DISTORTION</h1>
+            <p class="tagline">Hardstyle Edition</p>
+        </div>
+
+        <div class="controls">
+            <!-- Drive Control -->
+            <div class="control-group">
+                <label for="drive">DRIVE</label>
+                <input type="range" id="drive" min="0" max="100" value="50" class="slider">
+                <span class="value-display" id="driveValue">50</span>
+            </div>
+
+            <!-- Tone Control -->
+            <div class="control-group">
+                <label for="tone">TONE</label>
+                <input type="range" id="tone" min="0" max="100" value="50" class="slider">
+                <span class="value-display" id="toneValue">50</span>
+            </div>
+
+            <!-- Output Level -->
+            <div class="control-group">
+                <label for="output">OUTPUT</label>
+                <input type="range" id="output" min="0" max="100" value="70" class="slider">
+                <span class="value-display" id="outputValue">70</span>
+            </div>
+
+            <!-- Distortion Type -->
+            <div class="control-group distortion-type">
+                <label>TYPE</label>
+                <div class="button-group">
+                    <button class="type-btn active" data-type="soft">SOFT</button>
+                    <button class="type-btn" data-type="hard">HARD</button>
+                    <button class="type-btn" data-type="raw">RAW</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Volume -->
+        <div class="master-section">
+            <div class="control-group">
+                <label for="master">MASTER VOL</label>
+                <input type="range" id="master" min="0" max="100" value="80" class="slider">
+                <span class="value-display" id="masterValue">80</span>
+            </div>
+        </div>
+
+        <!-- LED Indicators -->
+        <div class="indicators">
+            <div class="led" id="clippingLed"></div>
+            <span class="led-label">CLIPPING</span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-section">
+            <button id="powerBtn" class="power-btn active">POWER</button>
+            <button id="resetBtn" class="reset-btn">RESET</button>
+        </div>
+
+        <!-- Audio Input/Output -->
+        <div class="audio-section">
+            <input type="file" id="audioInput" accept="audio/*" style="display: none;">
+            <button id="loadAudioBtn" class="load-btn">LOAD AUDIO</button>
+            <button id="playBtn" class="play-btn">PLAY</button>
+            <button id="stopBtn" class="stop-btn">STOP</button>
+        </div>
+    </div>
+
+    <script src="distortion.js"></script>
+</body>
+</html>
