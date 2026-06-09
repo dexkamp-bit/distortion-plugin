@@ -3,91 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardstyle Distortion Plugin</title>
+    <title>Hardstyle FX Suite</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="plugin-container">
-        <div class="header">
-            <h1>⚡ DISTORTION</h1>
-            <p class="tagline">Hardstyle Edition</p>
-        </div>
-
-        <!-- Knobs Control Panel -->
-        <div class="knobs-panel">
-            <!-- PRE Knob -->
-            <div class="knob-group">
-                <div class="knob" id="driveKnob">
-                    <div class="knob-pointer"></div>
-                </div>
-                <input type="range" id="drive" min="0" max="100" value="50" class="knob-input">
-                <label class="knob-label">DRIVE</label>
-                <span class="knob-value" id="driveValue">50</span>
+    <div class="plugin-suite">
+        <!-- DISTORTION SECTION (BLACK) -->
+        <div class="fx-module distortion-module">
+            <div class="module-header distortion-header">
+                <h2>⚡ DISTORTION</h2>
+                <p class="tagline">Hardstyle Edition</p>
             </div>
 
-            <!-- THRESH Knob -->
-            <div class="knob-group">
-                <div class="knob" id="toneKnob">
-                    <div class="knob-pointer"></div>
+            <!-- Knobs Panel -->
+            <div class="knobs-panel">
+                <div class="knob-group">
+                    <div class="knob" id="driveKnob">
+                        <div class="knob-pointer"></div>
+                    </div>
+                    <input type="range" id="drive" min="0" max="100" value="50" class="knob-input">
+                    <label class="knob-label">DRIVE</label>
+                    <span class="knob-value" id="driveValue">50</span>
                 </div>
-                <input type="range" id="tone" min="0" max="100" value="50" class="knob-input">
-                <label class="knob-label">TONE</label>
-                <span class="knob-value" id="toneValue">50</span>
+
+                <div class="knob-group">
+                    <div class="knob" id="toneKnob">
+                        <div class="knob-pointer"></div>
+                    </div>
+                    <input type="range" id="tone" min="0" max="100" value="50" class="knob-input">
+                    <label class="knob-label">TONE</label>
+                    <span class="knob-value" id="toneValue">50</span>
+                </div>
             </div>
 
-            <!-- MIX Knob -->
-            <div class="knob-group">
-                <div class="knob" id="outputKnob">
-                    <div class="knob-pointer"></div>
+            <div class="display-section">
+                <div class="led-display">
+                    <span class="led-label">TYPE:</span>
+                    <div class="led-buttons">
+                        <button class="type-btn active" data-type="soft">SOFT</button>
+                        <button class="type-btn" data-type="hard">HARD</button>
+                        <button class="type-btn" data-type="raw">RAW</button>
+                    </div>
                 </div>
-                <input type="range" id="output" min="0" max="100" value="70" class="knob-input">
-                <label class="knob-label">MIX</label>
-                <span class="knob-value" id="outputValue">70</span>
-            </div>
-
-            <!-- POST Knob -->
-            <div class="knob-group">
-                <div class="knob" id="masterKnob">
-                    <div class="knob-pointer"></div>
-                </div>
-                <input type="range" id="master" min="0" max="100" value="80" class="knob-input">
-                <label class="knob-label">POST</label>
-                <span class="knob-value" id="masterValue">80</span>
             </div>
         </div>
 
-        <!-- LED Display -->
-        <div class="display-section">
-            <div class="led-display">
-                <span class="led-label">TYPE:</span>
-                <div class="led-buttons">
-                    <button class="type-btn active" data-type="soft">SOFT</button>
-                    <button class="type-btn" data-type="hard">HARD</button>
-                    <button class="type-btn" data-type="raw">RAW</button>
+        <!-- FILTER SECTION (LIGHT BLUE) -->
+        <div class="fx-module filter-module">
+            <div class="module-header filter-header">
+                <h2>🔊 FILTER</h2>
+                <p class="tagline">EQ Control</p>
+            </div>
+
+            <!-- Knobs Panel -->
+            <div class="knobs-panel">
+                <div class="knob-group">
+                    <div class="knob filter-knob" id="freqKnob">
+                        <div class="knob-pointer filter-pointer"></div>
+                    </div>
+                    <input type="range" id="filterFreq" min="20" max="20000" value="8000" class="knob-input">
+                    <label class="knob-label">FREQ</label>
+                    <span class="knob-value filter-value" id="freqValue">8000</span>
+                </div>
+
+                <div class="knob-group">
+                    <div class="knob filter-knob" id="resonanceKnob">
+                        <div class="knob-pointer filter-pointer"></div>
+                    </div>
+                    <input type="range" id="filterRes" min="0" max="40" value="1" class="knob-input">
+                    <label class="knob-label">RES</label>
+                    <span class="knob-value filter-value" id="resValue">1</span>
                 </div>
             </div>
-            <div class="indicators">
-                <div class="led" id="clippingLed"></div>
-                <span class="led-text">CLIP</span>
+
+            <div class="display-section">
+                <div class="led-display">
+                    <span class="led-label">MODE:</span>
+                    <div class="led-buttons">
+                        <button class="filter-type-btn active" data-mode="lowpass">LOW</button>
+                        <button class="filter-type-btn" data-mode="highpass">HIGH</button>
+                        <button class="filter-type-btn" data-mode="bandpass">BAND</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Control Buttons -->
-        <div class="button-section">
-            <button id="powerBtn" class="power-btn active">PWR</button>
-            <button id="resetBtn" class="reset-btn">RST</button>
-        </div>
+        <!-- KICK FX SECTION (YELLOW) -->
+        <div class="fx-module kick-module">
+            <div class="module-header kick-header">
+                <h2>💥 KICK FX</h2>
+                <p class="tagline">Massive Kicks</p>
+            </div>
 
-        <!-- Audio Controls -->
-        <div class="audio-section">
-            <input type="file" id="audioInput" accept="audio/*" style="display: none;">
-            <button id="loadAudioBtn" class="audio-btn">LOAD</button>
-            <button id="playBtn" class="audio-btn">PLAY</button>
-            <button id="stopBtn" class="audio-btn">STOP</button>
+            <!-- Large Knobs Panel -->
+            <div class="kick-knobs-panel">
+                <div class="large-knob-group">
+                    <div class="large-knob" id="pitchKnob">
+                        <div class="knob-pointer large-pointer"></div>
+                    </div>
+                    <input type="range" id="kickPitch" min="20" max="200" value="60" class="knob-input">
+                    <label class="knob-label">PITCH</label>
+                    <span class="knob-value kick-value" id="pitchValue">60</span>
+                </div>
+
+                <div class="large-knob-group">
+                    <div class="large-knob" id="decayKnob">
+                        <div class="knob-pointer large-pointer"></div>
+                    </div>
+                    <input type="range" id="kickDecay" min="10" max="2000" value="500" class="knob-input">
+                    <label class="knob-label">DECAY</label>
+                    <span class="knob-value kick-value" id="decayValue">500</span>
+                </div>
+
+                <div class="large-knob-group">
+                    <div class="large-knob" id="volumeKnob">
+                        <div class="knob-pointer large-pointer"></div>
+                    </div>
+                    <input type="range" id="kickVolume" min="0" max="100" value="80" class="knob-input">
+                    <label class="knob-label">VOLUME</label>
+                    <span class="knob-value kick-value" id="volumeValue">80</span>
+                </div>
+            </div>
+
+            <!-- Kick Trigger Buttons -->
+            <div class="kick-controls">
+                <button id="kickTrigger" class="kick-trigger-btn">TRIGGER</button>
+                <button id="kickReset" class="kick-reset-btn">RESET</button>
+            </div>
         </div>
     </div>
 
+    <!-- Main Controls -->
+    <div class="main-controls">
+        <input type="file" id="audioInput" accept="audio/*" style="display: none;">
+        <button id="loadAudioBtn" class="main-btn">📁 LOAD</button>
+        <button id="playBtn" class="main-btn">▶ PLAY</button>
+        <button id="stopBtn" class="main-btn">⏹ STOP</button>
+        <button id="masterPowerBtn" class="main-btn power">🔌 POWER</button>
+    </div>
+
+    <div class="indicators-main">
+        <div class="led" id="clippingLed"></div>
+        <span class="led-text">CLIP</span>
+    </div>
+
     <script src="distortion.js"></script>
+    <script src="filter.js"></script>
+    <script src="kick.js"></script>
     <script src="knobs.js"></script>
 </body>
 </html>
