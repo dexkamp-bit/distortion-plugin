@@ -114,7 +114,6 @@ class DistortionPlugin {
         // Drive slider
         document.getElementById('drive').addEventListener('input', (e) => {
             this.drive = parseInt(e.target.value);
-            document.getElementById('driveValue').textContent = this.drive;
             this.makeDistortionCurve(this.drive);
             this.checkClipping();
         });
@@ -122,7 +121,6 @@ class DistortionPlugin {
         // Tone slider
         document.getElementById('tone').addEventListener('input', (e) => {
             this.tone = parseInt(e.target.value);
-            document.getElementById('toneValue').textContent = this.tone;
             // Map tone to frequency (500 Hz - 8000 Hz)
             const freq = 500 + (this.tone / 100) * 7500;
             this.toneNode.frequency.value = freq;
@@ -131,14 +129,12 @@ class DistortionPlugin {
         // Output slider
         document.getElementById('output').addEventListener('input', (e) => {
             this.output = parseInt(e.target.value);
-            document.getElementById('outputValue').textContent = this.output;
             this.updateOutputLevel();
         });
 
         // Master volume slider
         document.getElementById('master').addEventListener('input', (e) => {
             this.master = parseInt(e.target.value);
-            document.getElementById('masterValue').textContent = this.master;
             this.updateMasterVolume();
         });
 
@@ -172,16 +168,18 @@ class DistortionPlugin {
             document.getElementById('tone').value = 50;
             document.getElementById('output').value = 70;
             document.getElementById('master').value = 80;
-            document.getElementById('driveValue').textContent = '50';
-            document.getElementById('toneValue').textContent = '50';
-            document.getElementById('outputValue').textContent = '70';
-            document.getElementById('masterValue').textContent = '80';
             
             this.drive = 50;
             this.tone = 50;
             this.output = 70;
             this.master = 80;
             this.toneNode.frequency.value = 4000;
+            
+            // Trigger input events to update UI
+            document.getElementById('drive').dispatchEvent(new Event('input'));
+            document.getElementById('tone').dispatchEvent(new Event('input'));
+            document.getElementById('output').dispatchEvent(new Event('input'));
+            document.getElementById('master').dispatchEvent(new Event('input'));
             
             this.makeDistortionCurve(this.drive);
             this.updateMasterVolume();
@@ -244,7 +242,6 @@ class DistortionPlugin {
         
         this.isPlaying = true;
         document.getElementById('playBtn').classList.add('playing');
-        document.getElementById('playBtn').textContent = 'PAUSE';
 
         source.onended = () => {
             this.stop();
@@ -262,7 +259,6 @@ class DistortionPlugin {
         
         this.isPlaying = false;
         document.getElementById('playBtn').classList.remove('playing');
-        document.getElementById('playBtn').textContent = 'PLAY';
         document.getElementById('clippingLed').classList.remove('active');
     }
 
